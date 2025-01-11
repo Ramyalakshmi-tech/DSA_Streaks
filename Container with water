@@ -1,0 +1,16 @@
+https://leetcode.com/problems/container-with-most-water/description/?envType=problem-list-v2&envId=two-pointers
+
+//Brute force
+class Solution {
+    public int maxArea(int[] height) {
+            int maxWater=0;
+        for(int i=0;i<height.length;i++){
+            for(int j=i+1;j<height.length;j++){
+                int capacity=Math.min(height[i],height[j]);
+                maxWater=Math.max(capacity*(j-i),maxWater);
+            }
+        }
+
+        return maxWater;
+    }
+}
