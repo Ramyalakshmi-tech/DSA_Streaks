@@ -1,6 +1,6 @@
 https://leetcode.com/problems/longest-palindromic-substring/description/?envType=problem-list-v2&envId=two-pointers
 
-
+//brute force
 class Solution {
     public String longestPalindrome(String s) {
         String longPalindrome="";
@@ -28,3 +28,34 @@ class Solution {
         return true;
     }
 }
+
+//Expand around corner
+class Solution {
+    public String longestPalindrome(String s) {
+        String res = "";
+        for (int i = 0; i < s.length(); i++) {
+            // Odd-length palindromes
+            String oddPalindrome = expandAroundCenter(s, i, i);
+            if (oddPalindrome.length() > res.length()) {
+                res = oddPalindrome;
+            }
+
+            // Even-length palindromes
+            String evenPalindrome = expandAroundCenter(s, i, i + 1);
+            if (evenPalindrome.length() > res.length()) {
+                res = evenPalindrome;
+            }
+        }
+        return res;
+    }
+
+    private String expandAroundCenter(String s, int left, int right) {
+        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+            left--;
+            right++;
+        }
+        // Return the valid palindrome (note: left+1 and right are boundaries of the valid palindrome)
+        return s.substring(left + 1, right);
+    }
+}
+
