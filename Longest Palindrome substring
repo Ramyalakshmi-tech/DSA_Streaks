@@ -1,0 +1,28 @@
+https://leetcode.com/problems/longest-palindromic-substring/description/?envType=problem-list-v2&envId=two-pointers
+class Solution {
+    public String longestPalindrome(String s) {
+        String longPalindrome="";
+        for(int i=0;i<s.length();i++){
+            for(int j=s.length()-1;j>=i;j--){
+                if(s.charAt(i)==s.charAt(j)){
+                if(isPalindrome(i,j,s) && (j-i+1)>longPalindrome.length())
+                longPalindrome=s.substring(i,j+1);
+                }
+            }
+        }
+            return longPalindrome;
+    }
+
+  public boolean isPalindrome(int i,int j,String str){
+        int left=i;
+        int right=j;
+        while(left<right){
+            if(str.charAt(left)!=str.charAt(right))
+                return false;
+
+                left++;
+                right--;
+        }
+        return true;
+    }
+}
