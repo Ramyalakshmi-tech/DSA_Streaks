@@ -1,4 +1,6 @@
- //Brute force
+https://www.geeksforgeeks.org/problems/array-subset-of-another-array2317/1?page=1&sprint=94ade6723438d94ecf0c00c3937dad55&sortBy=submissions
+
+//Brute force
  TC- O(nlogn)
  SC-O(1)
 class Solution {
