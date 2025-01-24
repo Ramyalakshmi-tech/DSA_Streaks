@@ -1,0 +1,22 @@
+https://www.geeksforgeeks.org/problems/cyclically-rotate-an-array-by-one2614/1?page=1&sprint=94ade6723438d94ecf0c00c3937dad55&sortBy=submissions
+//Reversing array
+TC- O(n)
+SC-O(1)
+class Solution {
+    public void rotate(int[] arr) {
+        // code here
+        Reverse(0,arr.length-1,arr);
+        Reverse(1,arr.length-1,arr);
+        
+    }
+    
+    public void Reverse(int start,int end,int[] arr){
+      while(start<end){
+          int temp=arr[start];
+          arr[start]=arr[end];
+          arr[end]=temp;
+          start++;
+          end--;
+      }
+    }
+}
